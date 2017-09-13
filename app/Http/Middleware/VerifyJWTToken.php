@@ -23,7 +23,7 @@ class VerifyJWTToken
     {
         try{
             #usuario obtenido por el token
-            $user = JWTAuth::toUser($request->token)
+            $user = JWTAuth::toUser($request->token);
          }catch(JWTException $e){
              if($e instanceof \Tymon\JWTAuth\Exceptions\TokenExpiredException) {
                 return response()->json(['token ha experido'], $e->getStatusCode());
