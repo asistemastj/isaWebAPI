@@ -25,3 +25,7 @@ Route::post('login', 'UserController@login');
 Route::group(['middleware' => 'jwt.auth'], function (){
 	Route::get('usuario', 'UserController@getAuthUser');
 });
+
+#rutas que usara modulo de petroleo
+Route::get('/despachoTjoselito', 'DespachoTjoselitoController@index');
+Route::get('/despachoTjc', 'DespachoTjcController@index');
