@@ -12,6 +12,11 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function index(){
+        $users = User::all();
+        return response()->json(['usuarios' => $users]);
+    }
+
     #metodo para registrar
     public function register(Request $request){
     	#validación
