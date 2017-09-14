@@ -31,6 +31,7 @@ Route::get('/envios', 'EnvioController@index');
 
 /*USUARIO*/
 Route::resource('usuario.casos', 'UserCasoController', ['only' => ['index', 'store', 'destroy']]);
+Route::resource('usuario.envios', 'UserEnvioController', ['only' => ['index', 'store', 'update', 'destroy']]);
 #lista de usuarios
 Route::get('/usuarios', 'UserController@index');
 #rutas para registrar usuario

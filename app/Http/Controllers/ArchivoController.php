@@ -11,6 +11,6 @@ class ArchivoController extends Controller
     {
         #listar archivos
         $archivos = Archivo::all();
-        return response()->json(['data' => $archivos]);
+        return response()->json(['archivos' => $archivos]);
     }
 }

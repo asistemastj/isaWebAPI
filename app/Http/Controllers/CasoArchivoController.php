@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Caso;
+use App\Archivo;
 use Illuminate\Http\Request;
 
 class CasoArchivoController extends Controller
@@ -21,8 +22,7 @@ class CasoArchivoController extends Controller
             'nombre' => 'required',
         ]);
         $data = $request->all();
-        dd($data);
-        $data['nombre'] = $request->nombre;
+        #$data['nombre'] = $request->nombre;
         $data['caso_id'] = $caso->id;
         #creamos archivo
         $archivo = Archivo::create($data);

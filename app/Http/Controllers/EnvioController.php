@@ -16,6 +16,6 @@ class EnvioController extends Controller
     {
         #listar envios
         $envios = Envio::all();
-        return response()->json(['data' => $envios]);
+        return response()->json(['envios' => $envios]);
     }
 }
