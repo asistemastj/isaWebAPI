@@ -8,6 +8,7 @@ Route::resource('area.documentos', 'AreaDocumentoController', ['only' => 'index'
 
 /*AREAS*/
 Route::get('/areas', 'AreaController@index');
+Route::resource('area.usuarios', 'AreaUserController', ['only' => 'index']);
 
 /*CASOS*/
 Route::get('/casos', 'CasoController@index');
@@ -26,6 +27,7 @@ Route::get('/envios', 'EnvioController@index');
 
 /*USUARIO*/
 Route::resource('usuario.casos', 'UserCasoController', ['only' => ['index', 'store', 'destroy']]);
+Route::resource('usuario.documentos', 'UserDocumentoController', ['only' => ['store', 'destroy']]);
 Route::resource('usuario.envios', 'UserEnvioController', ['only' => ['index', 'store', 'update', 'destroy']]);
 #lista de usuarios
 Route::get('/usuarios', 'UserController@index');

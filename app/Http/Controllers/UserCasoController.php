@@ -92,7 +92,7 @@ class UserCasoController extends Controller
         #el usuario solo puede borrar su propio caso
         if($usuario->id == $caso->user_id){
             $caso->delete();
-            return response()->json(['data' => $caso]);
+            return response()->json(['caso' => $caso]);
         }
     }
 }
