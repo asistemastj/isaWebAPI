@@ -19,14 +19,14 @@ class CasoArchivoController extends Controller
     {
         #validación
         $this->validate($request, [
-            'nombre' => 'required',
+            'nombre' => 'required|file',
         ]);
         $data = $request->all();
-        #$data['nombre'] = $request->nombre;
+        $data['nombre'] = $request->nombre->store('archivo');;
         $data['caso_id'] = $caso->id;
         #creamos archivo
         $archivo = Archivo::create($data);
-        return response()->json(['data' => $archivo, 'code' => 200]);
+        return response()->json(['archivo' => $archivo, 'code' => 200]);
     }
 
     /**

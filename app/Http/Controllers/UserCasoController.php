@@ -36,7 +36,7 @@ class UserCasoController extends Controller
             'contenido' => 'required|max:255',
             'conclusion' => 'nullable|string',
             'fecha' => 'date',
-            'archivo' => 'required'
+            'archivo' => 'required|file'
         ]);
         #si pasavalidacio
         $data = $request->all();
@@ -44,12 +44,13 @@ class UserCasoController extends Controller
         $data['user_id'] = $usuario->id;
         #guardamos la imagen en nustra carpeta
         $data['archivo'] = $request->archivo;
-        #$data['archivo'] = $request->archivo->store('');
+        $data['archivo'] = $request->archivo->store('archivo');
         #creamos caso
         $caso = Caso::create($data);
         #tomamos el archivo y lo guardamos en db
         $archivo = new Archivo();
-        $archivo->nombre = $request->archivo;
+        #guardamos nombre archivo
+        $archivo->nombre = $data['archivo'];
         #$archivo->nombre = $request->archivo->store('');
         $archivo->caso_id = $caso->id;
         #guardamos archivo
